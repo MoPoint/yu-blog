@@ -19,21 +19,26 @@
   <meta name="author" content="宇哥">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="为什么需要规范的 Git 工作流Git 是现代软件开发不可或缺的版本控制工具。但仅会几个基本命令远远不够，一个规范的工作流能帮助团队避免冲突、保持历史清晰，让协作更加高效。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://mopoint.github.io/yu-blog/2026/05/17/hello-world/index.html">
+<meta property="og:title" content="Git 工作流最佳实践">
+<meta property="og:url" content="https://mopoint.github.io/yu-blog/2026/03/28/git-workflow-best-practices/index.html">
 <meta property="og:site_name" content="宇的个人博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="为什么需要规范的 Git 工作流Git 是现代软件开发不可或缺的版本控制工具。但仅会几个基本命令远远不够，一个规范的工作流能帮助团队避免冲突、保持历史清晰，让协作更加高效。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-17T07:42:04.874Z">
-<meta property="article:modified_time" content="2026-05-17T07:42:04.874Z">
+<meta property="og:image" content="https://mopoint.github.io/yu-blog/img/default.png">
+<meta property="article:published_time" content="2026-03-28T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-05-17T12:56:14.174Z">
 <meta property="article:author" content="宇哥">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="团队协作">
+<meta property="article:tag" content="版本控制">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mopoint.github.io/yu-blog/img/default.png">
   
   
   
-  <title>Hello World - 宇的个人博客</title>
+  <title>Git 工作流最佳实践 - 宇的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -71,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"mopoint.github.io","root":"/yu-blog/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/yu-blog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mopoint.github.io","root":"/yu-blog/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/yu-blog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -302,7 +307,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle">Git 工作流最佳实践</span>
           
         </div>
 
@@ -313,8 +318,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-17 15:42" pubdate>
-          2026年5月17日 下午
+        <time datetime="2026-03-28 10:30" pubdate>
+          2026年3月28日 上午
         </time>
       </span>
     
@@ -325,7 +330,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          367 字
+          1k 字
         
       </span>
     
@@ -336,7 +341,7 @@
         
         
         
-          4 分钟
+          9 分钟
         
       </span>
     
@@ -375,24 +380,54 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">Git 工作流最佳实践</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+                <h2 id="为什么需要规范的-Git-工作流"><a href="#为什么需要规范的-Git-工作流" class="headerlink" title="为什么需要规范的 Git 工作流"></a>为什么需要规范的 Git 工作流</h2><p>Git 是现代软件开发不可或缺的版本控制工具。但仅会几个基本命令远远不够，一个规范的工作流能帮助团队避免冲突、保持历史清晰，让协作更加高效。</p>
+<span id="more"></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h2 id="常用工作流对比"><a href="#常用工作流对比" class="headerlink" title="常用工作流对比"></a>常用工作流对比</h2><h3 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h3><p>适合有固定发布周期的项目：</p>
+<ul>
+<li><code>master</code> — 生产分支</li>
+<li><code>develop</code> — 开发主分支</li>
+<li><code>feature/*</code> — 功能分支</li>
+<li><code>release/*</code> — 发布分支</li>
+<li><code>hotfix/*</code> — 紧急修复分支</li>
+</ul>
+<h3 id="GitHub-Flow"><a href="#GitHub-Flow" class="headerlink" title="GitHub Flow"></a>GitHub Flow</h3><p>适合持续部署的简单流程：</p>
+<ul>
+<li><code>main</code> — 主分支，始终可部署</li>
+<li><code>feature</code> — 功能分支，提交 PR 合并</li>
+</ul>
+<h3 id="Trunk-Based-Development"><a href="#Trunk-Based-Development" class="headerlink" title="Trunk-Based Development"></a>Trunk-Based Development</h3><p>适合 CI&#x2F;CD 成熟的团队：</p>
+<ul>
+<li>所有人在主干分支开发</li>
+<li>短生命周期的特性分支</li>
+<li>频繁合并，避免长期分支</li>
+</ul>
+<h2 id="提交规范：Conventional-Commits"><a href="#提交规范：Conventional-Commits" class="headerlink" title="提交规范：Conventional Commits"></a>提交规范：Conventional Commits</h2><p>规范的提交信息能让 changelog 自动生成和维护历史更加轻松：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs subunit">feat: 添加用户登录功能<br>fix: 修复页面崩溃问题<br>docs: 更新 API 文档<br>style: 格式化代码<br>refactor: 重构数据库查询<br><span class="hljs-keyword">test: </span>添加单元测试<br>chore: 更新依赖版本<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<h2 id="实用技巧"><a href="#实用技巧" class="headerlink" title="实用技巧"></a>实用技巧</h2><h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>合理配置 <code>.gitignore</code>，避免将敏感信息和不必要的文件提交到仓库：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs nix"><span class="hljs-comment"># 依赖</span><br>node_modules<span class="hljs-symbol">/</span><br>vendor<span class="hljs-symbol">/</span><br><br><span class="hljs-comment"># 构建产物</span><br>dist<span class="hljs-symbol">/</span><br>build<span class="hljs-symbol">/</span><br>public<span class="hljs-symbol">/</span><br><br><span class="hljs-comment"># 环境配置</span><br>.env<br>.env.local<br><br><span class="hljs-comment"># 系统文件</span><br>.DS_Store<br>Thumbs.db<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<h3 id="善用-git-stash"><a href="#善用-git-stash" class="headerlink" title="善用 git stash"></a>善用 git stash</h3><p>当需要切换分支但又不想提交当前改动时：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 暂存当前修改</span><br>git stash save <span class="hljs-string">&quot;WIP: 正在调试的问题&quot;</span><br><br><span class="hljs-comment"># 恢复最近一次暂存</span><br>git stash pop<br><br><span class="hljs-comment"># 查看暂存列表</span><br>git stash list<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="交互式-rebase"><a href="#交互式-rebase" class="headerlink" title="交互式 rebase"></a>交互式 rebase</h3><p>合并多个提交，保持历史整洁：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git rebase -i HEAD~3<br></code></pre></td></tr></table></figure>
+
+<p>然后使用 <code>pick</code>、<code>squash</code>、<code>reword</code> 等命令整理提交历史。</p>
+<h2 id="团队协作建议"><a href="#团队协作建议" class="headerlink" title="团队协作建议"></a>团队协作建议</h2><ol>
+<li><strong>保持分支简短</strong> — 一个分支只做一件事，尽量在一天内合并</li>
+<li><strong>及时同步</strong> — 频繁 <code>git pull --rebase</code> 避免冲突积累</li>
+<li><strong>PR 要有描述</strong> — 清楚的 PR 描述比代码注释更有价值</li>
+<li><strong>Code Review</strong> — 至少由一人 Review 后再合并</li>
+<li><strong>不要强制推送</strong> — 特别是在共享分支上，除非你清楚在做什么</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Git 工作流没有银弹，选择最适合团队的方式并在实践中不断优化才是关键。重要的是：<strong>保持一致性</strong>，无论选择哪种工作流，团队都应该共同遵守。</p>
 
                 
               </div>
@@ -401,6 +436,38 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/yu-blog/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" class="category-chain-item">技术杂谈</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/yu-blog/tags/Git/" class="print-no-link">#Git</a>
+      
+        <a href="/yu-blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="print-no-link">#版本控制</a>
+      
+        <a href="/yu-blog/tags/%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/" class="print-no-link">#团队协作</a>
+      
+    </div>
   
 </div>
 
@@ -410,8 +477,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>https://mopoint.github.io/yu-blog/2026/05/17/hello-world/</div>
+      <div>Git 工作流最佳实践</div>
+      <div>https://mopoint.github.io/yu-blog/2026/03/28/git-workflow-best-practices/</div>
     </div>
     <div class="license-meta">
       
@@ -423,7 +490,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月17日</div>
+          <div>2026年3月28日</div>
         </div>
       
       
@@ -455,9 +522,21 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/yu-blog/2026/04/10/how-to-learn-new-tech/" title="程序员如何高效学习新技术">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">程序员如何高效学习新技术</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/yu-blog/2026/03/18/restful-api-design/" title="理解 RESTful API 设计原则">
+                        <span class="hidden-mobile">理解 RESTful API 设计原则</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -585,21 +664,6 @@
 <script  src="/yu-blog/js/events.js" ></script>
 <script  src="/yu-blog/js/plugins.js" ></script>
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
 
 
 

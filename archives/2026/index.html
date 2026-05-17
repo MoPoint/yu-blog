@@ -61,7 +61,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"mopoint.github.io","root":"/yu-blog/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/yu-blog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mopoint.github.io","root":"/yu-blog/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/yu-blog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -292,7 +292,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="归档"></span>
+            <span id="subtitle">归档</span>
           
         </div>
 
@@ -322,7 +322,7 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 1 篇文章</p>
+  <p class="h4">共计 10 篇文章</p>
   <hr>
   
   
@@ -330,9 +330,63 @@
       
       <p class="h5">2026</p>
     
-    <a href="/yu-blog/2026/05/17/hello-world/" class="list-group-item list-group-item-action">
-      <time>05-17</time>
-      <div class="list-group-item-title">Hello World</div>
+    <a href="/yu-blog/2026/05/15/2026-mid-year-summary/" class="list-group-item list-group-item-action">
+      <time>05-15</time>
+      <div class="list-group-item-title">我的 2026 上半年总结与反思</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/05/06/database-index-optimization/" class="list-group-item list-group-item-action">
+      <time>05-06</time>
+      <div class="list-group-item-title">数据库索引原理与优化实践</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/04/22/frontend-trends-2026/" class="list-group-item list-group-item-action">
+      <time>04-22</time>
+      <div class="list-group-item-title">2026 年值得关注的前端技术趋势</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/04/10/how-to-learn-new-tech/" class="list-group-item list-group-item-action">
+      <time>04-10</time>
+      <div class="list-group-item-title">程序员如何高效学习新技术</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/03/28/git-workflow-best-practices/" class="list-group-item list-group-item-action">
+      <time>03-28</time>
+      <div class="list-group-item-title">Git 工作流最佳实践</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/03/18/restful-api-design/" class="list-group-item list-group-item-action">
+      <time>03-18</time>
+      <div class="list-group-item-title">理解 RESTful API 设计原则</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/03/05/dev-environment-setup/" class="list-group-item list-group-item-action">
+      <time>03-05</time>
+      <div class="list-group-item-title">我的开发环境配置分享</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/02/20/python-data-analysis/" class="list-group-item list-group-item-action">
+      <time>02-20</time>
+      <div class="list-group-item-title">使用 Python 进行数据分析的基础方法</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/02/08/javascript-async-guide/" class="list-group-item list-group-item-action">
+      <time>02-08</time>
+      <div class="list-group-item-title">JavaScript 异步编程入门指南</div>
+    </a>
+  
+    
+    <a href="/yu-blog/2026/01/15/my-first-blog/" class="list-group-item list-group-item-action">
+      <time>01-15</time>
+      <div class="list-group-item-title">我的第一篇博客：从零搭建个人网站</div>
     </a>
   
 </div>
@@ -413,21 +467,6 @@
 <script  src="/yu-blog/js/events.js" ></script>
 <script  src="/yu-blog/js/plugins.js" ></script>
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
 
 
 

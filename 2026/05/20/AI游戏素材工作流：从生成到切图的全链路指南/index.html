@@ -27,7 +27,7 @@
 <meta property="og:description" content="前言独立游戏开发中，素材处理往往是最耗费精力的环节之一。尤其是 2D 游戏，你需要大量的角色立绘、序列帧动画和 Sprite Sheet。如果没有专业美术支持，一个人从零开始画素材简直是噩梦。 幸运的是，现在我们可以借助 AI 工具组合拳，大幅提升素材生产效率。本文将分享一套完整的 AI 游戏素材处理工作流，涵盖从 AI 生成到抠图切图的全部环节。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-20T13:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-20T11:16:22.278Z">
+<meta property="article:modified_time" content="2026-05-20T11:35:41.556Z">
 <meta property="article:author" content="宇哥">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="FrameRonin">
@@ -406,23 +406,23 @@
 <p>下面我们逐一展开。</p>
 <hr>
 <h2 id="第一步：AI-生成游戏图片"><a href="#第一步：AI-生成游戏图片" class="headerlink" title="第一步：AI 生成游戏图片"></a>第一步：AI 生成游戏图片</h2><p>目前主流的图片生成 AI 都可以用于游戏素材的初步生成：</p>
-<h3 id="Gemini（Google）"><a href="#Gemini（Google）" class="headerlink" title="Gemini（Google）"></a>Gemini（Google）</h3><p>Gemini 2.5 Pro 的图像生成能力非常强，特别适合：</p>
+<h3 id="ChatGPT-Images-2-0"><a href="#ChatGPT-Images-2-0" class="headerlink" title="ChatGPT Images 2.0"></a>ChatGPT Images 2.0</h3><p>OpenAI 最新的 <strong>ChatGPT Images 2.0</strong> 图像生成能力非常强大，特别适合：</p>
 <ul>
 <li>角色概念设计</li>
-<li>场景原画</li>
-<li>道具图标</li>
-</ul>
-<p>优势在于生成速度快、理解自然语言描述准确，且对角色姿态、服装细节的把控较好。</p>
-<h3 id="ChatGPT-DALL·E"><a href="#ChatGPT-DALL·E" class="headerlink" title="ChatGPT &#x2F; DALL·E"></a>ChatGPT &#x2F; DALL·E</h3><p>OpenAI 的 DALL·E 3 集成在 ChatGPT 中，适合：</p>
-<ul>
 <li>精细的角色立绘</li>
 <li>具有特定艺术风格的素材</li>
 <li>需要反复迭代调整的设计</li>
 </ul>
-<p>提示：生成时建议在 prompt 中明确标注素材用途，例如 “white background, character sprite sheet style, game asset”，这样后期处理会更方便。</p>
+<p>优势在于对自然语言理解精准、角色姿态和服装细节把控出色，且能保持风格一致性。生成时建议在 prompt 中明确标注素材用途，例如 “white background, character sprite sheet style, game asset”，这样后期处理会更方便。</p>
+<h3 id="Nano-Banana-2（纳米香蕉-2）"><a href="#Nano-Banana-2（纳米香蕉-2）" class="headerlink" title="Nano Banana 2（纳米香蕉 2）"></a>Nano Banana 2（纳米香蕉 2）</h3><p><strong>Nano Banana 2</strong> 是目前图像生成领域的新锐工具，在生成速度和成本控制上表现优异，特别适合：</p>
+<ul>
+<li>批量生成游戏素材</li>
+<li>道具和图标类素材</li>
+<li>快速原型验证</li>
+</ul>
 <h3 id="其他可选工具"><a href="#其他可选工具" class="headerlink" title="其他可选工具"></a>其他可选工具</h3><ul>
 <li><strong>Midjourney</strong>：艺术感最强，适合概念图和封面</li>
-<li><strong>Stable Diffusion</strong>：开源可本地部署，配合 LoRA 可以生成风格一致的素材集</li>
+<li><strong>Gemini（Google）</strong>：生成速度快，理解自然语言准确，适合快速出图</li>
 </ul>
 <hr>
 <h2 id="第二步：豆包提取图片内容"><a href="#第二步：豆包提取图片内容" class="headerlink" title="第二步：豆包提取图片内容"></a>第二步：豆包提取图片内容</h2><p>生成好原始图片后，使用 <strong>豆包（Doubao）</strong> 的图片识别功能进行内容提取和分析。</p>
@@ -517,7 +517,7 @@
 <hr>
 <h2 id="实战案例：角色立绘素材处理"><a href="#实战案例：角色立绘素材处理" class="headerlink" title="实战案例：角色立绘素材处理"></a>实战案例：角色立绘素材处理</h2><p>以下是一个完整的实战案例，展示如何从零开始处理一个游戏角色立绘素材。</p>
 <h3 id="步骤演示"><a href="#步骤演示" class="headerlink" title="步骤演示"></a>步骤演示</h3><p><strong>第 1 步：AI 生成角色概念图</strong></p>
-<p>使用 Gemini 生成角色概念图，prompt 示例：</p>
+<p>使用 ChatGPT Images 2.0 生成角色概念图，prompt 示例：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">一个剑士角色，全身立绘，白色背景，正面站立，<br>日式 RPG 风格，高清，游戏素材用<br></code></pre></td></tr></table></figure>
 
 <p><strong>第 2 步：豆包预处理</strong></p>
@@ -540,7 +540,7 @@
 </thead>
 <tbody><tr>
 <td>AI 生成</td>
-<td>Gemini &#x2F; ChatGPT &#x2F; SD</td>
+<td>ChatGPT Images 2.0 &#x2F; Nano Banana 2 &#x2F; Midjourney</td>
 <td>原始素材图</td>
 </tr>
 <tr>
@@ -596,9 +596,9 @@
       
         <a href="/yu-blog/tags/AI/" class="print-no-link">#AI</a>
       
-        <a href="/yu-blog/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="print-no-link">#游戏开发</a>
-      
         <a href="/yu-blog/tags/%E5%B7%A5%E5%85%B7/" class="print-no-link">#工具</a>
+      
+        <a href="/yu-blog/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="print-no-link">#游戏开发</a>
       
         <a href="/yu-blog/tags/FrameRonin/" class="print-no-link">#FrameRonin</a>
       

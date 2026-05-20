@@ -19,27 +19,28 @@
   <meta name="author" content="宇哥">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言作为一名技术博主兼业余网文爱好者，我一直想找个趁手的 AI 辅助写作工具。市面上有不少 AI 写作产品，但大多存在两个痛点：  遗忘：写到后面忘了前面的设定，角色名字都能搞错 幻觉：AI 胡编乱造，与已有剧情矛盾  最近在 GitHub 挖到了一个宝藏开源项目 —— WebNovel Writer，一个基于 Claude Code 构建的 AI 辅助网文写作系统，Star 数已达 4.2k。花">
+    <meta name="description" content="前言独立游戏开发中，素材处理往往是最耗费精力的环节之一。尤其是 2D 游戏，你需要大量的角色立绘、序列帧动画和 Sprite Sheet。如果没有专业美术支持，一个人从零开始画素材简直是噩梦。 幸运的是，现在我们可以借助 AI 工具组合拳，大幅提升素材生产效率。本文将分享一套完整的 AI 游戏素材处理工作流，涵盖从 AI 生成到抠图切图的全部环节。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI写网文神器：WebNovel Writer 使用指南">
-<meta property="og:url" content="https://mopoint.github.io/yu-blog/2026/05/20/AI%E5%86%99%E7%BD%91%E6%96%87%E7%A5%9E%E5%99%A8%EF%BC%9AWebNovel-Writer-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="AI游戏素材工作流：从生成到切图的全链路指南">
+<meta property="og:url" content="https://mopoint.github.io/yu-blog/2026/05/20/AI%E6%B8%B8%E6%88%8F%E7%B4%A0%E6%9D%90%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%9A%E4%BB%8E%E7%94%9F%E6%88%90%E5%88%B0%E5%88%87%E5%9B%BE%E7%9A%84%E5%85%A8%E9%93%BE%E8%B7%AF%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="宇的个人博客">
-<meta property="og:description" content="前言作为一名技术博主兼业余网文爱好者，我一直想找个趁手的 AI 辅助写作工具。市面上有不少 AI 写作产品，但大多存在两个痛点：  遗忘：写到后面忘了前面的设定，角色名字都能搞错 幻觉：AI 胡编乱造，与已有剧情矛盾  最近在 GitHub 挖到了一个宝藏开源项目 —— WebNovel Writer，一个基于 Claude Code 构建的 AI 辅助网文写作系统，Star 数已达 4.2k。花">
+<meta property="og:description" content="前言独立游戏开发中，素材处理往往是最耗费精力的环节之一。尤其是 2D 游戏，你需要大量的角色立绘、序列帧动画和 Sprite Sheet。如果没有专业美术支持，一个人从零开始画素材简直是噩梦。 幸运的是，现在我们可以借助 AI 工具组合拳，大幅提升素材生产效率。本文将分享一套完整的 AI 游戏素材处理工作流，涵盖从 AI 生成到抠图切图的全部环节。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-20T11:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-20T01:17:28.605Z">
+<meta property="article:published_time" content="2026-05-20T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-20T11:16:22.278Z">
 <meta property="article:author" content="宇哥">
 <meta property="article:tag" content="AI">
-<meta property="article:tag" content="Claude">
-<meta property="article:tag" content="写作">
+<meta property="article:tag" content="FrameRonin">
 <meta property="article:tag" content="工具">
+<meta property="article:tag" content="游戏开发">
+<meta property="article:tag" content="素材处理">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>AI写网文神器：WebNovel Writer 使用指南 - 宇的个人博客</title>
+  <title>AI游戏素材工作流：从生成到切图的全链路指南 - 宇的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -308,7 +309,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">AI写网文神器：WebNovel Writer 使用指南</span>
+            <span id="subtitle">AI游戏素材工作流：从生成到切图的全链路指南</span>
           
         </div>
 
@@ -319,7 +320,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-20 19:00" pubdate>
+        <time datetime="2026-05-20 21:00" pubdate>
           2026年5月20日 晚上
         </time>
       </span>
@@ -331,7 +332,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          2.8k 字
         
       </span>
     
@@ -342,7 +343,7 @@
         
         
         
-          17 分钟
+          24 分钟
         
       </span>
     
@@ -390,97 +391,176 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">AI写网文神器：WebNovel Writer 使用指南</h1>
+            <h1 id="seo-header">AI游戏素材工作流：从生成到切图的全链路指南</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一名技术博主兼业余网文爱好者，我一直想找个趁手的 AI 辅助写作工具。市面上有不少 AI 写作产品，但大多存在两个痛点：</p>
-<ul>
-<li><strong>遗忘</strong>：写到后面忘了前面的设定，角色名字都能搞错</li>
-<li><strong>幻觉</strong>：AI 胡编乱造，与已有剧情矛盾</li>
-</ul>
-<p>最近在 GitHub 挖到了一个宝藏开源项目 —— <strong><a target="_blank" rel="noopener" href="https://github.com/lingfengQAQ/webnovel-writer">WebNovel Writer</a></strong>，一个基于 Claude Code 构建的 AI 辅助网文写作系统，Star 数已达 4.2k。花了一周时间深度体验后，我来给大家分享一下它的使用心得。</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>独立游戏开发中，素材处理往往是最耗费精力的环节之一。尤其是 2D 游戏，你需要大量的角色立绘、序列帧动画和 Sprite Sheet。如果没有专业美术支持，一个人从零开始画素材简直是噩梦。</p>
+<p>幸运的是，现在我们可以借助 AI 工具组合拳，大幅提升素材生产效率。本文将分享一套完整的 AI 游戏素材处理工作流，涵盖从 AI 生成到抠图切图的全部环节。</p>
 <span id="more"></span>
 
-<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>WebNovel Writer 是一个开源（GPL v3）的 AI 辅助小说创作系统，运行在 <strong>Claude Code</strong> 之上，专为网文写作者打造。它的核心卖点是能写出<strong>长达 200 万字</strong>的长篇网文，同时有效对抗 AI 写作的两大顽疾——遗忘和幻觉。</p>
-<p>项目由开发者 <strong>lingfengQAQ</strong> 维护，主要使用 Python（92.4%）编写，配合 JavaScript 前端界面。</p>
-<h2 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h2><h3 id="1-故事系统（Story-System）"><a href="#1-故事系统（Story-System）" class="headerlink" title="1. 故事系统（Story System）"></a>1. 故事系统（Story System）</h3><p>这是项目的灵魂所在。它采用了一种”主链”架构，将真实数据与展示数据分离：</p>
+<h2 id="工作流总览"><a href="#工作流总览" class="headerlink" title="工作流总览"></a>工作流总览</h2><p>这套流程分为四个主要步骤：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">AI</span> 生成图片 → 豆包提取/预处理 → FrameRonin 专业处理 → 素材导出<br></code></pre></td></tr></table></figure>
+
+<p>下面我们逐一展开。</p>
+<hr>
+<h2 id="第一步：AI-生成游戏图片"><a href="#第一步：AI-生成游戏图片" class="headerlink" title="第一步：AI 生成游戏图片"></a>第一步：AI 生成游戏图片</h2><p>目前主流的图片生成 AI 都可以用于游戏素材的初步生成：</p>
+<h3 id="Gemini（Google）"><a href="#Gemini（Google）" class="headerlink" title="Gemini（Google）"></a>Gemini（Google）</h3><p>Gemini 2.5 Pro 的图像生成能力非常强，特别适合：</p>
 <ul>
-<li><strong><code>.story-system/</code></strong>——存放主设定、卷集、章节、评论等源数据</li>
-<li><strong><code>.webnovel/</code></strong>——存放投影后的状态、索引、摘要等只读数据</li>
+<li>角色概念设计</li>
+<li>场景原画</li>
+<li>道具图标</li>
 </ul>
-<p>每当你完成一个章节，系统会自动触发投影更新，确保所有衍生数据保持同步。</p>
-<h3 id="2-RAG-检索增强生成"><a href="#2-RAG-检索增强生成" class="headerlink" title="2. RAG 检索增强生成"></a>2. RAG 检索增强生成</h3><p>RAG 是解决遗忘问题的关键。每次写作前，系统会自动检索相关的角色档案、剧情线索和世界观规则，注入到当前会话的上下文中。这需要配置两个服务：</p>
+<p>优势在于生成速度快、理解自然语言描述准确，且对角色姿态、服装细节的把控较好。</p>
+<h3 id="ChatGPT-DALL·E"><a href="#ChatGPT-DALL·E" class="headerlink" title="ChatGPT &#x2F; DALL·E"></a>ChatGPT &#x2F; DALL·E</h3><p>OpenAI 的 DALL·E 3 集成在 ChatGPT 中，适合：</p>
 <ul>
-<li><strong>Embedding API</strong>（推荐 Qwen3-Embedding-8B，部署在 ModelScope）</li>
-<li><strong>Re-ranker API</strong>（推荐 Jina）</li>
+<li>精细的角色立绘</li>
+<li>具有特定艺术风格的素材</li>
+<li>需要反复迭代调整的设计</li>
 </ul>
-<h3 id="3-37-种网文题材模板"><a href="#3-37-种网文题材模板" class="headerlink" title="3. 37 种网文题材模板"></a>3. 37 种网文题材模板</h3><p>内置 37 种网文题材的角色模板，通过 <code>references/genre-profiles.md</code> 配置。无论你想写玄幻、都市、科幻还是历史，都有现成的模板可以直接套用。</p>
-<h3 id="4-Hook-追读力系统"><a href="#4-Hook-追读力系统" class="headerlink" title="4. Hook &#x2F; 追读力系统"></a>4. Hook &#x2F; 追读力系统</h3><p>这是 v5.3 引入的有趣功能。系统会追踪读者的追读体验，包括：</p>
+<p>提示：生成时建议在 prompt 中明确标注素材用途，例如 “white background, character sprite sheet style, game asset”，这样后期处理会更方便。</p>
+<h3 id="其他可选工具"><a href="#其他可选工具" class="headerlink" title="其他可选工具"></a>其他可选工具</h3><ul>
+<li><strong>Midjourney</strong>：艺术感最强，适合概念图和封面</li>
+<li><strong>Stable Diffusion</strong>：开源可本地部署，配合 LoRA 可以生成风格一致的素材集</li>
+</ul>
+<hr>
+<h2 id="第二步：豆包提取图片内容"><a href="#第二步：豆包提取图片内容" class="headerlink" title="第二步：豆包提取图片内容"></a>第二步：豆包提取图片内容</h2><p>生成好原始图片后，使用 <strong>豆包（Doubao）</strong> 的图片识别功能进行内容提取和分析。</p>
+<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><ol>
+<li>将 AI 生成的图片上传到豆包</li>
+<li>使用豆包的视觉理解能力，提取图片中的关键元素</li>
+<li>根据需要生成两种预处理版本：</li>
+</ol>
+<p><strong>白色背景图</strong>：将主体置于纯白背景上，方便后续抠图去背时获得干净的 Alpha 通道<br><strong>黑色背景图</strong>：将主体置于纯黑背景上，用于边缘检测和色彩提取</p>
+<blockquote>
+<p>为什么要同时准备白背景和黑背景？因为在后续的抠图处理中，利用双背景对比可以更精准地识别主体边缘，尤其是处理半透明区域（如头发丝、光影效果）时效果显著提升。</p>
+</blockquote>
+<hr>
+<h2 id="第三步：FrameRonin-专业处理"><a href="#第三步：FrameRonin-专业处理" class="headerlink" title="第三步：FrameRonin 专业处理"></a>第三步：FrameRonin 专业处理</h2><p><a target="_blank" rel="noopener" href="https://frameronin.com/"><strong>FrameRonin</strong></a> 是一个功能强大的在线游戏素材处理工具，同时也有 <strong>GitHub 开源版本</strong>可供自行部署。</p>
+<blockquote>
+<p>在线使用：<a target="_blank" rel="noopener" href="https://frameronin.com/">https://frameronin.com/</a><br>开源项目支持自行部署到本地服务器</p>
+</blockquote>
+<h3 id="FrameRonin-核心功能"><a href="#FrameRonin-核心功能" class="headerlink" title="FrameRonin 核心功能"></a>FrameRonin 核心功能</h3><p>从网站的 meta 描述可以看出，FrameRonin 专注于三大核心能力：</p>
+<blockquote>
+<p><strong>将视频提取为序列帧、抠图去背、生成 Sprite Sheet，支持透明 PNG 与 ZIP 打包下载</strong></p>
+</blockquote>
+<p>具体包括以下功能模块：</p>
+<h4 id="1-视频转序列帧"><a href="#1-视频转序列帧" class="headerlink" title="1. 视频转序列帧"></a>1. 视频转序列帧</h4><p>上传游戏录制视频或动画参考视频，按时间范围和帧率提取为单帧图片。支持：</p>
 <ul>
-<li>钩子（Hook）设计</li>
-<li>爽点（Cool-point）分布</li>
-<li>微观回报节奏</li>
-<li>债务追踪</li>
+<li>自定义时间范围</li>
+<li>自定义采样帧率</li>
+<li>按间隔采样保留关键帧</li>
+<li>ZIP 打包批量下载</li>
 </ul>
-<p>帮助你维持叙事的张力，避免剧情平淡如水。</p>
-<h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><h3 id="第一步：安装-Claude-Code-插件"><a href="#第一步：安装-Claude-Code-插件" class="headerlink" title="第一步：安装 Claude Code 插件"></a>第一步：安装 Claude Code 插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">claude plugin marketplace add lingfengQAQ/webnovel-writer --scope user<br>claude plugin install webnovel-writer@webnovel-writer-marketplace --scope user<br></code></pre></td></tr></table></figure>
+<h4 id="2-抠图去背（Image-Matte）"><a href="#2-抠图去背（Image-Matte）" class="headerlink" title="2. 抠图去背（Image Matte）"></a>2. 抠图去背（Image Matte）</h4><p>这是 FrameRonin 的核心功能之一。能够自动识别图像主体，去除背景生成透明 PNG。</p>
+<p>支持多种抠图模式：</p>
+<ul>
+<li><strong>自动抠图</strong>：AI 自动识别主体</li>
+<li><strong>色度抠图（Chroma Key）</strong>：基于颜色范围去除背景</li>
+<li><strong>双背景抠图</strong>：利用白背景和黑背景的对比，精确提取半透明区域</li>
+</ul>
+<h4 id="3-Sprite-Sheet-生成"><a href="#3-Sprite-Sheet-生成" class="headerlink" title="3. Sprite Sheet 生成"></a>3. Sprite Sheet 生成</h4><p>将多张序列帧合并为一张 Sprite Sheet，支持：</p>
+<ul>
+<li>按行列均分排列</li>
+<li>按透明线自动切割排列</li>
+<li>自定义边距和间距</li>
+<li>紧凑排列优化空间</li>
+</ul>
+<h4 id="4-图像分割（Split）"><a href="#4-图像分割（Split）" class="headerlink" title="4. 图像分割（Split）"></a>4. 图像分割（Split）</h4><p>支持多种切图方式：</p>
+<ul>
+<li><strong>按网格分割</strong>：将大图按行列均分为多个小图</li>
+<li><strong>按透明线切割</strong>：自动识别透明间隙进行切割</li>
+<li><strong>按色差分割</strong>：根据颜色差异进行分割</li>
+<li><strong>自定义区域分割</strong>：手动框选切割区域</li>
+</ul>
+<h4 id="5-其他工具"><a href="#5-其他工具" class="headerlink" title="5. 其他工具"></a>5. 其他工具</h4><ul>
+<li><strong>颜色选择器（Color Picker）</strong></li>
+<li><strong>图像精细编辑（Fine Editor）</strong></li>
+<li><strong>水印去除（Watermark Remover）</strong></li>
+<li><strong>地图拼接（Map Stitch）</strong>：适用于游戏地图素材拼接</li>
+</ul>
+<hr>
+<h2 id="第四步：抠图去背-RoninPro-零散切图"><a href="#第四步：抠图去背-RoninPro-零散切图" class="headerlink" title="第四步：抠图去背 + RoninPro 零散切图"></a>第四步：抠图去背 + RoninPro 零散切图</h2><p>这是整个工作流的最后一步，也是最关键的一步。</p>
+<h3 id="抠图去背获取透明背景图片"><a href="#抠图去背获取透明背景图片" class="headerlink" title="抠图去背获取透明背景图片"></a>抠图去背获取透明背景图片</h3><p>将前一步处理好的图片上传到 FrameRonin，使用抠图去背功能：</p>
+<ol>
+<li>选择 <strong>抠图去背（Image Matte）</strong> 工具</li>
+<li>上传你的图片（如果是使用双背景法准备的素材，效果最佳）</li>
+<li>工具会自动识别主体并去除背景</li>
+<li>导出为透明 PNG 格式</li>
+</ol>
+<p>提示：如果自动抠图效果不理想，可以切换到色度抠图模式，手动调整颜色容差参数。</p>
+<h3 id="RoninPro-零散切图"><a href="#RoninPro-零散切图" class="headerlink" title="RoninPro 零散切图"></a>RoninPro 零散切图</h3><p>FrameRonin 的 <strong>RoninPro</strong> 模块提供了更专业的零散切图功能，特别适合处理复杂的游戏素材。</p>
+<h4 id="什么是零散切图？"><a href="#什么是零散切图？" class="headerlink" title="什么是零散切图？"></a>什么是零散切图？</h4><p>零散切图是指将一张包含多个独立元素的大图，根据元素的边界自动识别并切割成多个独立的图片文件。这在处理以下场景时特别有用：</p>
+<ul>
+<li><strong>角色 Sprite Sheet</strong>：将一张包含多个角色动作的 Sprite Sheet 切分为单帧</li>
+<li><strong>素材图集</strong>：从一张大图中提取所有独立的游戏元素</li>
+<li><strong>UI 素材</strong>：从 UI 设计稿中提取各个独立的 UI 元素</li>
+</ul>
+<h4 id="RoninPro-零散切图操作步骤"><a href="#RoninPro-零散切图操作步骤" class="headerlink" title="RoninPro 零散切图操作步骤"></a>RoninPro 零散切图操作步骤</h4><ol>
+<li>在 FrameRonin 中切换到 <strong>RoninPro</strong> 模式</li>
+<li>上传需要切割的素材图片</li>
+<li>选择切割模式：<ul>
+<li><strong>自动检测</strong>：自动识别图片中的独立元素并切分</li>
+<li><strong>按透明线切割</strong>：根据透明间隙自动分割</li>
+<li><strong>手动框选</strong>：手动指定每个元素的切割区域</li>
+</ul>
+</li>
+<li>预览切割结果，调整参数</li>
+<li>批量导出所有切分好的图片</li>
+</ol>
+<h4 id="RoninPro-高级功能"><a href="#RoninPro-高级功能" class="headerlink" title="RoninPro 高级功能"></a>RoninPro 高级功能</h4><ul>
+<li><strong>精细边缘处理</strong>：对切割后的元素边缘进行抗锯齿和羽化处理</li>
+<li><strong>批量重命名</strong>：对导出的多张图片进行规则化命名</li>
+<li><strong>格式转换</strong>：支持 PNG、WebP 等多种输出格式</li>
+<li><strong>自定义裁切边距</strong>：为每个切割元素添加统一的外边距</li>
+</ul>
+<hr>
+<h2 id="实战案例：角色立绘素材处理"><a href="#实战案例：角色立绘素材处理" class="headerlink" title="实战案例：角色立绘素材处理"></a>实战案例：角色立绘素材处理</h2><p>以下是一个完整的实战案例，展示如何从零开始处理一个游戏角色立绘素材。</p>
+<h3 id="步骤演示"><a href="#步骤演示" class="headerlink" title="步骤演示"></a>步骤演示</h3><p><strong>第 1 步：AI 生成角色概念图</strong></p>
+<p>使用 Gemini 生成角色概念图，prompt 示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">一个剑士角色，全身立绘，白色背景，正面站立，<br>日式 RPG 风格，高清，游戏素材用<br></code></pre></td></tr></table></figure>
 
-<h3 id="第二步：安装-Python-依赖"><a href="#第二步：安装-Python-依赖" class="headerlink" title="第二步：安装 Python 依赖"></a>第二步：安装 Python 依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -m pip install -r https://raw.githubusercontent.com/lingfengQAQ/webnovel-writer/HEAD/requirements.txt<br></code></pre></td></tr></table></figure>
-
-<h3 id="第三步：初始化小说项目"><a href="#第三步：初始化小说项目" class="headerlink" title="第三步：初始化小说项目"></a>第三步：初始化小说项目</h3><p>进入 Claude Code 后，运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/webnovel-init<br></code></pre></td></tr></table></figure>
-
-<p>系统会引导你填写书名、题材、主角信息，然后自动创建项目目录。</p>
-<h3 id="第四步：配置-RAG"><a href="#第四步：配置-RAG" class="headerlink" title="第四步：配置 RAG"></a>第四步：配置 RAG</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> .env.example .<span class="hljs-built_in">env</span><br></code></pre></td></tr></table></figure>
-
-<p>编辑 <code>.env</code> 文件，填入 Embedding 和 Re-ranker 的 API 地址和密钥。</p>
-<h2 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h2><p>初始化完成后，就可以开始写作了。常用的命令有：</p>
+<p><strong>第 2 步：豆包预处理</strong></p>
+<p>将生成的图片上传豆包，提取角色细节描述，然后生成白背景和黑背景两个版本。</p>
+<p><strong>第 3 步：FrameRonin 抠图</strong></p>
+<p>上传到 FrameRonin，使用双背景抠图模式，获得透明背景的角色 PNG。</p>
+<p><strong>第 4 步：RoninPro 切图</strong></p>
+<p>如果这是一张包含多个动作或角色变体的素材图，使用 RoninPro 的零散切图功能将它们逐一分离。</p>
+<p><strong>第 5 步：导出集成</strong></p>
+<p>将切分好的单帧导入游戏引擎（Unity、Godot、Cocos 等），配置动画组件即可使用。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这套 AI + 工具组合的工作流优势明显：</p>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>说明</th>
+<th>步骤</th>
+<th>工具</th>
+<th>产出</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>/webnovel-plan 1</code></td>
-<td>规划第 1 卷的大纲</td>
+<td>AI 生成</td>
+<td>Gemini &#x2F; ChatGPT &#x2F; SD</td>
+<td>原始素材图</td>
 </tr>
 <tr>
-<td><code>/webnovel-write 1</code></td>
-<td>写第 1 章</td>
+<td>预处理</td>
+<td>豆包</td>
+<td>白&#x2F;黑背景预处理图</td>
 </tr>
 <tr>
-<td><code>/webnovel-review 1-5</code></td>
-<td>审阅第 1~5 章</td>
+<td>专业处理</td>
+<td>FrameRonin</td>
+<td>序列帧 &#x2F; Sprite Sheet &#x2F; 去背图</td>
 </tr>
 <tr>
-<td><code>/webnovel-preflight</code></td>
-<td>系统健康检查</td>
-</tr>
-<tr>
-<td><code>/webnovel-dashboard</code></td>
-<td>打开写作仪表盘</td>
+<td>精细切图</td>
+<td>RoninPro</td>
+<td>透明背景的独立素材文件</td>
 </tr>
 </tbody></table>
-<p>实际的写作体验相当流畅。AI 会记住你之前的设定——某个配角在第 10 章提过的细节，到了第 50 章还能准确引用，不再需要手动翻前面的章节去核对。</p>
-<p>仪表盘界面也做得不错，可以直观地看到项目状态、实体关系图、章节内容和追读力指标，而且是预编译好的，无需额外构建。</p>
-<h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><p>从技术角度看，这个项目的设计也很值得学习：</p>
-<ul>
-<li><strong>提交驱动的流水线</strong>：接受的章节会触发投影更新，而不是直接修改源数据链</li>
-<li><strong>内存暂存板</strong>（v5.5.5）：写作前注入相关上下文，写作后提炼并持久化，形成一个长期记忆循环</li>
-<li><strong>Bye-Bye 遗忘</strong>：通过 RAG + 记忆循环的组合拳，基本解决了长文本下的遗忘问题</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>WebNovel Writer 是我目前见过最专业的 AI 辅助网文写作工具，它的设计理念——用工程思维解决创作问题——让我印象深刻。</p>
-<p>当然，它也有一定的上手门槛：需要配置 Claude Code 环境、RAG 服务等。如果你是纯粹的写作者，可能更倾向于零配置的在线产品；但如果你是技术背景的创作者，或者对 AI 辅助写作的技术实现感兴趣，那这个项目绝对值得一试。</p>
-<p><strong>相关链接：</strong></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/lingfengQAQ/webnovel-writer">GitHub 仓库</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.gnu.org/licenses/gpl-3.0.html">GPL v3 许可证</a></li>
-<li><a target="_blank" rel="noopener" href="https://claude.ai/code">Claude Code</a></li>
-</ul>
+<p>通过这套流程，独立开发者甚至一个人就能完成过去需要一个美术团队才能完成的素材制作工作，大幅降低游戏开发的门槛。</p>
+<p>如果你有更好的工具组合或工作流优化建议，欢迎在评论区分享讨论！</p>
 
                 
               </div>
@@ -516,11 +596,13 @@
       
         <a href="/yu-blog/tags/AI/" class="print-no-link">#AI</a>
       
-        <a href="/yu-blog/tags/%E5%86%99%E4%BD%9C/" class="print-no-link">#写作</a>
-      
         <a href="/yu-blog/tags/%E5%B7%A5%E5%85%B7/" class="print-no-link">#工具</a>
       
-        <a href="/yu-blog/tags/Claude/" class="print-no-link">#Claude</a>
+        <a href="/yu-blog/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="print-no-link">#游戏开发</a>
+      
+        <a href="/yu-blog/tags/FrameRonin/" class="print-no-link">#FrameRonin</a>
+      
+        <a href="/yu-blog/tags/%E7%B4%A0%E6%9D%90%E5%A4%84%E7%90%86/" class="print-no-link">#素材处理</a>
       
     </div>
   
@@ -532,8 +614,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>AI写网文神器：WebNovel Writer 使用指南</div>
-      <div>https://mopoint.github.io/yu-blog/2026/05/20/AI写网文神器：WebNovel-Writer-使用指南/</div>
+      <div>AI游戏素材工作流：从生成到切图的全链路指南</div>
+      <div>https://mopoint.github.io/yu-blog/2026/05/20/AI游戏素材工作流：从生成到切图的全链路指南/</div>
     </div>
     <div class="license-meta">
       
@@ -577,18 +659,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/yu-blog/2026/05/20/AI%E6%B8%B8%E6%88%8F%E7%B4%A0%E6%9D%90%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%9A%E4%BB%8E%E7%94%9F%E6%88%90%E5%88%B0%E5%88%87%E5%9B%BE%E7%9A%84%E5%85%A8%E9%93%BE%E8%B7%AF%E6%8C%87%E5%8D%97/" title="AI游戏素材工作流：从生成到切图的全链路指南">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">AI游戏素材工作流：从生成到切图的全链路指南</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/yu-blog/2026/05/15/2026-mid-year-summary/" title="我的 2026 上半年总结与反思">
-                        <span class="hidden-mobile">我的 2026 上半年总结与反思</span>
+                      <a href="/yu-blog/2026/05/20/AI%E5%86%99%E7%BD%91%E6%96%87%E7%A5%9E%E5%99%A8%EF%BC%9AWebNovel-Writer-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="AI写网文神器：WebNovel Writer 使用指南">
+                        <span class="hidden-mobile">AI写网文神器：WebNovel Writer 使用指南</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -35,28 +35,27 @@ AI 生成图片 → 豆包提取/预处理 → FrameRonin 专业处理 → 素�
 
 目前主流的图片生成 AI 都可以用于游戏素材的初步生成：
 
-### Gemini（Google）
+### ChatGPT Images 2.0
 
-Gemini 2.5 Pro 的图像生成能力非常强，特别适合：
+OpenAI 最新的 **ChatGPT Images 2.0** 图像生成能力非常强大，特别适合：
 - 角色概念设计
-- 场景原画
-- 道具图标
-
-优势在于生成速度快、理解自然语言描述准确，且对角色姿态、服装细节的把控较好。
-
-### ChatGPT / DALL·E
-
-OpenAI 的 DALL·E 3 集成在 ChatGPT 中，适合：
 - 精细的角色立绘
 - 具有特定艺术风格的素材
 - 需要反复迭代调整的设计
 
-提示：生成时建议在 prompt 中明确标注素材用途，例如 "white background, character sprite sheet style, game asset"，这样后期处理会更方便。
+优势在于对自然语言理解精准、角色姿态和服装细节把控出色，且能保持风格一致性。生成时建议在 prompt 中明确标注素材用途，例如 "white background, character sprite sheet style, game asset"，这样后期处理会更方便。
+
+### Nano Banana 2（纳米香蕉 2）
+
+**Nano Banana 2** 是目前图像生成领域的新锐工具，在生成速度和成本控制上表现优异，特别适合：
+- 批量生成游戏素材
+- 道具和图标类素材
+- 快速原型验证
 
 ### 其他可选工具
 
 - **Midjourney**：艺术感最强，适合概念图和封面
-- **Stable Diffusion**：开源可本地部署，配合 LoRA 可以生成风格一致的素材集
+- **Gemini（Google）**：生成速度快，理解自然语言准确，适合快速出图
 
 ---
 
@@ -189,7 +188,7 @@ FrameRonin 的 **RoninPro** 模块提供了更专业的零散切图功能，特�
 
 **第 1 步：AI 生成角色概念图**
 
-使用 Gemini 生成角色概念图，prompt 示例：
+使用 ChatGPT Images 2.0 生成角色概念图，prompt 示例：
 
 ```
 一个剑士角色，全身立绘，白色背景，正面站立，
@@ -220,7 +219,7 @@ FrameRonin 的 **RoninPro** 模块提供了更专业的零散切图功能，特�
 
 | 步骤 | 工具 | 产出 |
 |------|------|------|
-| AI 生成 | Gemini / ChatGPT / SD | 原始素材图 |
+| AI 生成 | ChatGPT Images 2.0 / Nano Banana 2 / Midjourney | 原始素材图 |
 | 预处理 | 豆包 | 白/黑背景预处理图 |
 | 专业处理 | FrameRonin | 序列帧 / Sprite Sheet / 去背图 |
 | 精细切图 | RoninPro | 透明背景的独立素材文件 |
